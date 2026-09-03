@@ -8,19 +8,16 @@
     wayland.enable = true;
   };
 
-  # Wayland tweak for the RX 9060 XT
+  # Wayland tweak
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1"; 
+    AMD_VULKAN_ICD = "RADV";
   };
 
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
     videoDrivers = [ "amdgpu" ];
-    xkb = {
-      layout = "au";
-      variant = "";
-    };
   };
 
   # Ricing

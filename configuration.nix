@@ -53,17 +53,12 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # Use the WirePlumber session manager
-    #wireplumber.enable = true;
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."silver" = {
     isNormalUser = true;
-    description = "Silver";
+    description = "You!";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       kdePackages.kate
@@ -115,7 +110,6 @@
   ];  
 
   programs.gamemode.enable = true;
-
   programs.gamescope = {
     enable = true;
     capSysNice = true;

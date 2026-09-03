@@ -15,13 +15,16 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    millennium.url =
-      "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
 
-    nixcord.url = 
-      "github:4evy/nixcord";
+    nixcord.url = "github:4evy/nixcord";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak";
+
+    arctis-sound-manager = {
+      url = "github:loteran/Arctis-Sound-Manager?dir=nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { 
@@ -31,6 +34,7 @@
     plasma-manager,
     millennium,
     nix-flatpak,
+    arctis-sound-manager,
     ... 
   }@inputs: 
   {
@@ -45,6 +49,8 @@
         ./configuration.nix
 
         home-manager.nixosModules.home-manager
+
+        arctis-sound-manager.nixosModules.default
 
         {
           home-manager.useGlobalPkgs = true;

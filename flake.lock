@@ -1,5 +1,27 @@
 {
   "nodes": {
+    "arctis-sound-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "dir": "nix",
+        "lastModified": 1788423887,
+        "narHash": "sha256-8e2+c1hZZeDl8StXx+NwN2brcbxgfBslfKhEUZ2U1Qo=",
+        "owner": "loteran",
+        "repo": "Arctis-Sound-Manager",
+        "rev": "dc26d0e55582030e475e3483dcc92128a6e74ebc",
+        "type": "github"
+      },
+      "original": {
+        "dir": "nix",
+        "owner": "loteran",
+        "repo": "Arctis-Sound-Manager",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib"
@@ -217,6 +239,7 @@
     },
     "root": {
       "inputs": {
+        "arctis-sound-manager": "arctis-sound-manager",
         "home-manager": "home-manager",
         "millennium": "millennium",
         "nix-flatpak": "nix-flatpak",

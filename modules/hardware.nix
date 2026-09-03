@@ -32,18 +32,31 @@
   # Firmware updates
   services.fwupd.enable = true;
 
-  # Peripherals
-    # General
+  ## Peripherals
+  # General
   services.ratbagd.enable = true;
 
-    # Mouse
-  hardware.logitech.wireless.enable = true;
-  hardware.logitech.wireless.enableGraphical = true; # solaar for logitech XDDDDDDD
-
-    # Keyboard
+  # Keyboard
   hardware.keyboard.qmk.enable = true;
 
-    # Headset (although.. the base station is wired and that handles it, oh well I'll keep it around)
+  services.xserver.xkb = {
+    layout = "au";
+    variant = "";
+  };
+
+  # Headset / Speakers
+  services.arctis-sound-manager.enable = true;
+
+  services.pulseaudio.enable = false; # I mean if I'm handling graphics in here too...
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
+  # Anything else
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = false;
