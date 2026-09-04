@@ -1,0 +1,99 @@
+{ ... }:
+
+{
+  programs.firefox = {
+    enable = true;
+
+    policies = {
+      Extensions.install =
+        builtins.map
+        (extension: "https://addons.mozilla.org/firefox/downloads/latest/${extension}/latest.xpi") [
+          "ublock-origin"
+          "clearurls"
+          "sponsorblock"
+          "dearrow"
+          "keepassxc-browser"
+          "darkreader"
+          "bionic-reader"
+          "violentmonkey"
+        ];
+      Cookies.Behavior = "reject-tracker-and-partition-foreign";
+      DisableFirefoxAccounts = true;
+      DisableFormHistory = true;
+      DisableMasterPasswordCreation = true;
+      DisableSetDesktopBackground = true;
+      DisableTelemetry = true;
+      DisableFirefoxStudies = true;
+      DisablePocket = true;
+      OfferToSaveLogins = false; # keepass
+      PasswordManagerEnabled = false; # keepass once more
+      NewTabPage = false;
+      DisableAppUpdate = true;
+      UserMessaging.SkipOnboarding = true;
+      DisableProfileImport = true;
+      PromptForDownloadLocation = true;
+      EncryptedMediaExtensions.Enabled = true;
+      EnableTrackingProtection = {
+        Category = "strict";
+        Value = true;
+        Cryptomining = true;
+        Fingerprinting = false;
+        SuspectedFingerprinting = true;
+        EmailTracking = true;
+      };
+      FirefoxHome = {
+        Highlights = false;
+        Search = false;
+        Snippets = false;
+        SponsoredStories = false;
+        SponsoredTopSites = false;
+        Stories = false;
+        TopSites = false;
+      };
+      FirefoxSuggest = {
+        WebSuggestions = false;
+      };
+      HardwareAcceleration = true;
+      Homepage.StartPage = "previous-session";
+      NoDefaultBookmarks = true;
+      Preferences = {
+        "media.hardware-video-decoding.force-enabled" = true;
+        "media.ffmpeg.vaapi.enabled" = true;
+        "media.rdd-ffmpeg.enabled" = true;
+
+        "media.memory_cache_max_size" = 65536;
+        "image.mem.decode_bytes_at_a_time" = 32768;
+        "network.http.max-persistent-connections-per-server" = 10;
+
+        "browser.translations.enable" = true;
+        "javascript.options.wasm_simd" = true;
+
+        "privacy.query_stripping.enabled" = true;
+        "privacy.query_stripping.enabled.pbmode" = true;
+        "privacy.donottrackheader.enabled" = true;
+        "dom.battery.enabled" = false;
+
+        "browser.ml.enable"= false;
+        "browser.ml.chat.enabled" = false;
+        "browser.ml.chat.sidebar" = false;
+        "browser.ml.chat.shortcuts" = false;
+        "browser.ml.chat.prompts" = false;
+        "pdfjs.enableAltText" = false;
+        "pdfjs.enableGuessAltText" = false;
+
+        "browser.ping-centre.telemetry" = false; 
+      };
+
+      SearchEngines = {
+        Default = "Google"; # The convenience though....
+        Add = [
+          {
+            Name = "DuckDuckGo";
+            Alias = "@ddg";
+            URLTemplate = "https://duckduckgo.com/?q={searchTerms}&ia=web";
+          }
+        ];
+      };
+    };
+  };
+}

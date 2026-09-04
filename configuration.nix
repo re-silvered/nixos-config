@@ -8,12 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./modules/hardware.nix
-      ./modules/graphics.nix
-      ./modules/networking.nix
-      ./modules/packages.nix
-      ./modules/gaming.nix
-      ./modules/ups.nix
+      ./modules
     ];
 
   boot.loader.systemd-boot.enable = true;

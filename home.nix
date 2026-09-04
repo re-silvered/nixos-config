@@ -3,10 +3,9 @@
 {
   imports = [ 
     inputs.nixcord.homeModules.nixcord 
-    ./home/nixcord.nix
-    ./home/keepassxc.nix
+    ./home/programs/nixcord.nix
+    ./home/programs/keepassxc.nix
 ];
-
 
   home.username = "silver";
   home.homeDirectory = "/home/silver";
@@ -17,7 +16,6 @@
   home.packages = with pkgs; [
     libreoffice-fresh
     thunderbird
-    librewolf
     vscode
     telegram-desktop
 
@@ -46,10 +44,6 @@
     };
 
     uninstallUnmanaged = false;
-  };
-
-  home.sessionVariables = {
-    BROWSER = "librewolf";
   };
 
   programs.bash = {
