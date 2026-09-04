@@ -6,7 +6,6 @@
     nativeMessagingHosts = [ pkgs.keepassxc ];
 
     policies = {
-      # Extensions
       ExtensionSettings =
         let
           moz = extension:
@@ -48,7 +47,10 @@
             installation_mode = "force_installed";
           };
 
-          # Bionic Reader omitted until its Firefox extension ID is verified.
+          "{c2ecdf60-7077-4bfa-b9c2-4892a8ded8c6}" = {
+            install_url = moz "bionic-reader";
+            installation_mode = "force_installed";
+          };
         };
 
       Cookies.Behavior = "reject-tracker-and-partition-foreign";

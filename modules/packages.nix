@@ -34,7 +34,14 @@
     wl-clipboard
     xclip
 
-    (writeShellScriptBin "rebuild"
-      (builtins.readFile ../scripts/rebuild.sh))
+    (pkgs.writeShellApplication {
+      name = "rebuild";
+
+      runtimeInputs = with pkgs; [
+       python3
+      ];
+
+      text = builtins.readFile ../scripts/rebuild.sh;
+    })
   ];
 }

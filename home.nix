@@ -7,6 +7,7 @@
     ./home/programs/keepassxc.nix
     ./home/programs/firefox.nix
     ./home/programs/vscode.nix
+    ./home/default-apps.nix
 ];
 
   home.username = "silver";

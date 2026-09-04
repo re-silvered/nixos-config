@@ -86,7 +86,9 @@ case "$ACTION" in
 
         echo "==> Switch succeeded."
 
-        # Catch changes made since the last test build.
+        echo "==> Running tree script..."
+        "$REPO/scripts/update-readme-tree.sh"
+
         git add -A
 
         if ! git diff --cached --quiet; then
