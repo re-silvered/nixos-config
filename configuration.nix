@@ -13,11 +13,14 @@
       ./modules/networking.nix
       ./modules/packages.nix
       ./modules/gaming.nix
+      ./modules/ups.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  my.ups.enable = false; # Remove when you do finally plug that bitch in
 
   # Localisation
   time.timeZone = "Australia/Melbourne";

@@ -17,12 +17,21 @@
   home.packages = with pkgs; [
     libreoffice-fresh
     thunderbird
-
     librewolf
     vscode
+    telegram-desktop
+
+    krita
+    kdePackages.kdenlive
+    obs-studio
 
     mangohud
     protonup-qt
+
+    kdePackages.kleopatra
+    gnupg
+    pinentry-qt
+    tor-browser
   ];
 
   services.flatpak = {

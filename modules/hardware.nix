@@ -1,6 +1,10 @@
 { pkgs, ... }:
 
 {
+
+  # Firmware updates
+  services.fwupd.enable = true;
+
   # GPU
   boot.initrd.kernelModules = [ "amdgpu" ];
 
@@ -25,20 +29,15 @@
     };
   };
 
+  services.lact.enable = true;
+
   # CPU
   hardware.cpu.intel.updateMicrocode = true;
 
   services.thermald.enable = true; # hehe 'mald'
 
-  # lact
-  systemd.packages = with pkgs; [ lact ];
-  systemd.services.lact.enable = true;
-
   # SSD
   services.fstrim.enable = true;
-
-  # Firmware updates
-  services.fwupd.enable = true;
 
   ## Peripherals
   # General

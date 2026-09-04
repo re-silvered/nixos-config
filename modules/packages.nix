@@ -11,17 +11,19 @@
     git
     wget
     curl
+    eza
+    ripgrep
 
     vim # TODO: learn this
 
     htop
     btop
     tree
-    ripgrep
     jq
     unzip
     p7zip
     fastfetch
+    ffmpeg
 
     pciutils
     usbutils
@@ -29,11 +31,8 @@
     smartmontools
     nvme-cli
 
-
     wl-clipboard
     xclip
-
-    mangohud
 
     (writeShellScriptBin "rebuild"
       (builtins.readFile ../scripts/rebuild.sh))

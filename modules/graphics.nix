@@ -17,6 +17,7 @@
   services.xserver = {
     enable = true;
     videoDrivers = [ "amdgpu" ];
+    displayManager.gdm.autoSuspend = false;
   };
 
   # RDP
