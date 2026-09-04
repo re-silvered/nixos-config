@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   # GPU
@@ -13,6 +13,9 @@
       extraPackages = with pkgs; [
         rocmPackages.clr.icd # opencl
         libvdpau-va-gl
+
+        intel-media-driver # cpu
+        vpl-gpu-rt # cpu
       ];
     };
     amdgpu = {
@@ -21,6 +24,11 @@
       initrd.enable = true;
     };
   };
+
+  # CPU
+  hardware.cpu.intel.updateMicrocode = true;
+
+  services.thermald.enable = true; # hehe 'mald'
 
   # lact
   systemd.packages = with pkgs; [ lact ];
@@ -35,6 +43,12 @@
   ## Peripherals
   # General
   services.ratbagd.enable = true;
+
+  # Mouse
+  services.libinput = {
+    enable = true;
+    mouse.accelProfile = "flat";
+  };
 
   # Keyboard
   hardware.keyboard.qmk.enable = true;

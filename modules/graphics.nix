@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   # Plasma
@@ -11,13 +11,19 @@
   # Wayland tweak
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1"; 
-    AMD_VULKAN_ICD = "RADV";
   };
 
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
     videoDrivers = [ "amdgpu" ];
+  };
+
+  # RDP
+  services.xrdp = {
+    enable = true;
+    defaultWindowManager = "startplasma-x11";
+    openFirewall = true; # TCP Port 3389
   };
 
   # Ricing
