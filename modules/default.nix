@@ -8,6 +8,5 @@
     ./packages.nix
     ./gaming.nix
     ./ups.nix
-    ./firefox.nix
   ];
 }

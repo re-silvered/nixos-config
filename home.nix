@@ -5,6 +5,7 @@
     inputs.nixcord.homeModules.nixcord 
     ./home/programs/nixcord.nix
     ./home/programs/keepassxc.nix
+    ./home/programs/firefox.nix
 ];
 
   home.username = "silver";
@@ -64,18 +65,5 @@
 	showMediaControls = true;
       };
     };
-  };
-
-  programs.nixcord = {
-    enable = true;
-
-    discord.enable = false;
-    equibop.enable = true;
-
-    quickCss = 
-      '' button[aria-label="Send a gift"], 
-	 div[aria-label="Send a gift"] { 
-         display: none !important;}
-      ''; # fuck outta here with that
   };
 }
