@@ -11,7 +11,7 @@ TREE="$(
   tree \
     --dirsfirst \
     --noreport \
-    -I '.git|.github|result|README.md|LICENSE|flake.lock|scripts'
+    -I '.git|.github|result|README.md|LICENSE|flake.lock|scripts|secrets'
 )"
 
 export TREE
