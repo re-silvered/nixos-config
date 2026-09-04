@@ -6,6 +6,7 @@
     ./home/programs/nixcord.nix
     ./home/programs/keepassxc.nix
     ./home/programs/firefox.nix
+    ./home/programs/vscode.nix
 ];
 
   home.username = "silver";
@@ -17,8 +18,8 @@
   home.packages = with pkgs; [
     libreoffice-fresh
     thunderbird
-    vscode
     telegram-desktop
+    spotify
 
     krita
     kdePackages.kdenlive
@@ -33,36 +34,23 @@
     tor-browser
   ];
 
-  services.flatpak = {
-    enable = true;
-    packages = [
-      "com.spotify.Client" # put it here for troubleshooting but keeping it, meh
-    ];
-
-    update.auto = {
-      enable = true;
-      onCalendar = "weekly";
-    };
-
-    uninstallUnmanaged = false;
-  };
-
   programs.bash = {
   enable = true;
 
     shellAliases = {
       update-nix = "cd /etc/nixos && sudo nix flake update";
-      ll = "ls -lah";
+      ll = "eza -lah";
     };
   };
 
   programs.plasma = {
     enable = true;
+    workspace.iconTheme = "Papirus-Dark";
     kscreenlocker = {
       autoLock = false;
 
       appearance = {
-	showMediaControls = true;
+	      showMediaControls = true;
       };
     };
   };
