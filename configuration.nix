@@ -33,7 +33,7 @@
     ];
   };
 
-  
+
 
   systemd.sleep.settings.Sleep = { # I know how to use home+L
     AllowHibernation = "no";
