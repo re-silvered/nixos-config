@@ -1,5 +1,7 @@
 {
   description = "Silver's NixOS configuration";
+  # I kind of dislike this file... 
+  #I'll get the motivation one day to clean it up
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
@@ -56,18 +58,18 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
 
-	  home-manager.backupFileExtension = "hm-backup";
+	        home-manager.backupFileExtension = "hm-backup";
 
           home-manager.extraSpecialArgs = {
             inherit inputs;
           };
 
           home-manager.users.silver = {
-	    imports = [
-	      ./home.nix
-	      plasma-manager.homeModules.plasma-manager
-	      nix-flatpak.homeManagerModules.nix-flatpak
-	    ];
+	          imports = [
+	            ./home.nix
+	            plasma-manager.homeModules.plasma-manager
+	            nix-flatpak.homeManagerModules.nix-flatpak
+	          ];
           };
         }
       ];

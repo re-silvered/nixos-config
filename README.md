@@ -8,8 +8,10 @@ Credits also to some people from the NixOS discord who shared their configs whos
 .
 ├── home
 │   ├── programs
+│   │   ├── default.nix
 │   │   ├── firefox.nix
 │   │   ├── keepassxc.nix
+│   │   ├── kitty.nix
 │   │   ├── nixcord.nix
 │   │   └── vscode.nix
 │   └── default-apps.nix
