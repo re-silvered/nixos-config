@@ -13,6 +13,7 @@ Credits also to some people from the NixOS discord who shared their configs whos
 │   │   ├── keepassxc.nix
 │   │   ├── kitty.nix
 │   │   ├── nixcord.nix
+│   │   ├── starship.nix
 │   │   └── vscode.nix
 │   └── default-apps.nix
 ├── modules

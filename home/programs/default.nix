@@ -7,5 +7,6 @@
     ./kitty.nix
     ./nixcord.nix
     ./vscode.nix
+    ./starship.nix
   ];
 }
