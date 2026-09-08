@@ -18,6 +18,7 @@
 
     htop
     btop
+    rocmPackages.rocm-smi
     tree
     jq
     unzip

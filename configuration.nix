@@ -15,8 +15,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  my.ups.enable = false; # Remove when you do finally plug that bitch in
-
   # Localisation
   time.timeZone = "Australia/Melbourne";
   i18n.defaultLocale = "en_AU.UTF-8";
@@ -32,8 +30,6 @@
       kdePackages.kate
     ];
   };
-
-
 
   systemd.sleep.settings.Sleep = { # I know how to use home+L
     AllowHibernation = "no";
