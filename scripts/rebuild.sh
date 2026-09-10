@@ -18,11 +18,10 @@ case "$ACTION" in
     test)
         echo "==> Testing NixOS configuration..."
 
+        git add -A
         sudo nixos-rebuild test "$@"
 
         echo "==> Test succeeded."
-
-        git add -A
 
         if git diff --cached --quiet; then
             echo "==> No configuration changes to commit."
@@ -82,6 +81,7 @@ case "$ACTION" in
 
         echo "==> Switching NixOS configuration..."
 
+        git add -A
         sudo nixos-rebuild switch "${REBUILD_ARGS[@]}"
 
         echo "==> Switch succeeded."
@@ -133,6 +133,7 @@ case "$ACTION" in
         ;;
 
     *)
+        git add -A
         sudo nixos-rebuild "$ACTION" "$@"
         ;;
 esac

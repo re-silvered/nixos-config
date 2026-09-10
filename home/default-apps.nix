@@ -13,7 +13,7 @@
 
       "x-scheme-handler/mailto" = "thunderbird.desktop";
 
-      "x-scheme-handler/discord" = "discord.desktop";
+      "x-scheme-handler/discord" = "equibop.desktop";
 
       "x-scheme-handler/steam" = "steam.desktop";
     };

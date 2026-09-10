@@ -4,6 +4,8 @@
   imports = [ 
     inputs.nixcord.homeModules.nixcord 
     ./home/programs
+    ./home/default-apps.nix
+    ./home/desktop.nix
 ];
 
   home.username = "silver";

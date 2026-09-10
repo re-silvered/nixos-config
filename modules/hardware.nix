@@ -14,7 +14,7 @@
       enable = true;
       enable32Bit = true;
       extraPackages = with pkgs; [
-        rocmPackages.clr.icd # opencl
+        rocmPackages.clr.icd
         libvdpau-va-gl
 
         intel-media-driver # cpu
