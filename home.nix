@@ -5,7 +5,6 @@
     inputs.nixcord.homeModules.nixcord 
     ./home/programs
     ./home/default-apps.nix
-    ./home/desktop.nix
 ];
 
   home.username = "silver";
@@ -26,6 +25,9 @@
 
     mangohud
     protonup-qt
+
+    remmina # Windows RDP
+    moonlight-qt # Game streaming (one day they'll all support linux...)
 
     kdePackages.kleopatra
     gnupg

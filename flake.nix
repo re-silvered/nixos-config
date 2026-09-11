@@ -27,6 +27,11 @@
       url = "github:loteran/Arctis-Sound-Manager?dir=nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    vfio-stealth = {
+      url = "github:Daaboulex/vfio-stealth-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { 
@@ -54,7 +59,13 @@
 
         arctis-sound-manager.nixosModules.default
 
+        inputs.vfio-stealth.nixosModules.default
+
         {
+          nixpkgs.overlays = [
+            inputs.vfio-stealth.overlays.default
+          ];
+
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
 

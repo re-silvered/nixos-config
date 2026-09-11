@@ -15,8 +15,7 @@ Credits also to some people from the NixOS discord who shared their configs whos
 │   │   ├── nixcord.nix
 │   │   ├── starship.nix
 │   │   └── vscode.nix
-│   ├── default-apps.nix
-│   └── desktop.nix
+│   └── default-apps.nix
 ├── modules
 │   ├── default.nix
 │   ├── gaming.nix
@@ -24,7 +23,8 @@ Credits also to some people from the NixOS discord who shared their configs whos
 │   ├── hardware.nix
 │   ├── networking.nix
 │   ├── packages.nix
-│   └── ups.nix
+│   ├── ups.nix
+│   └── virtualisation.nix
 ├── configuration.nix
 ├── flake.nix
 ├── hardware-configuration.nix

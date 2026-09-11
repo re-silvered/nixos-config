@@ -31,6 +31,8 @@
     lm_sensors
     smartmontools
     nvme-cli
+    dmidecode
+    read-edid
 
     wl-clipboard
     xclip

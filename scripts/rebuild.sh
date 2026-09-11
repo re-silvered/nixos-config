@@ -19,7 +19,7 @@ case "$ACTION" in
         echo "==> Testing NixOS configuration..."
 
         git add -A
-        sudo nixos-rebuild test "$@"
+        sudo nixos-rebuild test --impure "$@"
 
         echo "==> Test succeeded."
 
@@ -82,7 +82,7 @@ case "$ACTION" in
         echo "==> Switching NixOS configuration..."
 
         git add -A
-        sudo nixos-rebuild switch "${REBUILD_ARGS[@]}"
+        sudo nixos-rebuild switch --impure "${REBUILD_ARGS[@]}"
 
         echo "==> Switch succeeded."
 
@@ -134,6 +134,6 @@ case "$ACTION" in
 
     *)
         git add -A
-        sudo nixos-rebuild "$ACTION" "$@"
+        sudo nixos-rebuild "$ACTION" --impure "$@"
         ;;
 esac
