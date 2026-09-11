@@ -8,5 +8,8 @@
     font.package = pkgs.nerd-fonts.jetbrains-mono;
     font.size = 10;
     shellIntegration.enableBashIntegration = true;
+    settings = {
+      background_opacity = "0.7";
+    };
   };
 }
