@@ -397,4 +397,26 @@ in
       ${pkgs.libvirt}/bin/virsh -c qemu:///system define ${windows11Xml}
     '';
   };
+
+  # USB Passthrough, not for the VM but its the closest relevant file
+  programs.nix-ld.enable = true;
+
+  systemd.services.virtualhere = {
+    description = "VirtualHere USB Server";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network.target" ];
+    serviceConfig = {
+      ExecStartPre = [
+        "-/bin/mkdir -p /var/lib/virtualhere"
+        ''
+        /bin/sh -c 'if [ ! -f /var/lib/virtualhere/vhusbdx86_64 ]; then \
+          /bin/curl -o /var/lib/virtualhere/vhusbdx86_64 https://virtualhere.com; \
+          /bin/chmod +x /var/lib/virtualhere/vhusbdx86_64; \
+        fi'
+        ''
+      ];
+      ExecStart = "/var/lib/virtualhere/vhusbdx86_64 -r -c /var/lib/virtualhere";
+      Restart = "always";
+    };
+  };
 }

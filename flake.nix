@@ -33,7 +33,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    virtualhere.url = "github:BatteredBunny/virtualhere-nixos";
   };
 
   outputs = { 

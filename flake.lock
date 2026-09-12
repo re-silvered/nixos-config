@@ -390,22 +390,6 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
-      "locked": {
-        "lastModified": 1771369470,
-        "narHash": "sha256-0NBlEBKkN3lufyvFegY4TYv5mCNHbi5OmBDrzihbBMQ=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "0182a361324364ae3f436a63005877674cf45efb",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "plasma-manager": {
       "inputs": {
         "home-manager": [
@@ -438,8 +422,7 @@
         "nixcord": "nixcord",
         "nixpkgs": "nixpkgs_3",
         "plasma-manager": "plasma-manager",
-        "vfio-stealth": "vfio-stealth",
-        "virtualhere": "virtualhere"
+        "vfio-stealth": "vfio-stealth"
       }
     },
     "std": {
@@ -511,24 +494,6 @@
       "original": {
         "owner": "Daaboulex",
         "repo": "vfio-stealth-nix",
-        "type": "github"
-      }
-    },
-    "virtualhere": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_4"
-      },
-      "locked": {
-        "lastModified": 1787360823,
-        "narHash": "sha256-9ktYCUaS+JuyQ6jED2i0FtbNm7EGARaiNTfGMh8hlM0=",
-        "owner": "BatteredBunny",
-        "repo": "virtualhere-nixos",
-        "rev": "c296e72427c4777b51eedce01872c0e639720007",
-        "type": "github"
-      },
-      "original": {
-        "owner": "BatteredBunny",
-        "repo": "virtualhere-nixos",
         "type": "github"
       }
     }

@@ -25,6 +25,7 @@ Credits also to some people from the NixOS discord who shared their configs whos
 │   ├── packages.nix
 │   ├── ups.nix
 │   └── virtualisation.nix
+├── nixpkgs
 ├── configuration.nix
 ├── flake.nix
 ├── hardware-configuration.nix
