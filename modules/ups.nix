@@ -1,4 +1,3 @@
-# Got too big for hardware.nix ...
 { ... }:
 
 {

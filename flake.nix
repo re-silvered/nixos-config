@@ -32,6 +32,8 @@
       url = "github:Daaboulex/vfio-stealth-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    virtualhere.url = "github:BatteredBunny/virtualhere-nixos";
   };
 
   outputs = { 

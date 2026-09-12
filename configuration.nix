@@ -17,6 +17,10 @@
   # For virtualisation, libvirt claims them only while the VM is running and returns them on exit.
   boot.kernelParams = [ "intel_iommu=on" "iommu=pt" ];
   boot.kernelModules = [ "vfio_pci" ];
+  # USB passthrough
+  programs.nix-ld.enable = true;
+  boot.extraModulePackages = with config.boot.kernelPackages; [ usbip ];
+  nixpkgs.overlays = [ inputs.virtualhere.overlays.default ];
 
   # Localisation
   time.timeZone = "Australia/Melbourne";
@@ -51,9 +55,8 @@
   nix.gc = {
     automatic = true;
     dates = "weekly";
-    options = "--delete-older-than 30d";
+    options = "--delete-older-than 14d";
   };
 
   system.stateVersion = "26.05"; # ! DO NOT TOUCH !
-
 }
