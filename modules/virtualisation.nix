@@ -404,19 +404,27 @@ in
   systemd.services.virtualhere = {
     description = "VirtualHere USB Server";
     wantedBy = [ "multi-user.target" ];
-    after = [ "network.target" ];
+    after = [ "network-online.target" ];
+    wants = [ "network-online.target" ];
+
+    path = [ pkgs.coreutils pkgs.curl ];
+    preStart = ''
+      install -d -m 0755 /var/lib/virtualhere
+
+      if [ ! -x /var/lib/virtualhere/vhusbdx86_64 ]; then
+        download=$(mktemp /var/lib/virtualhere/vhusbdx86_64.XXXXXX)
+        trap 'rm -f "$download"' EXIT
+        curl --fail --location --retry 3 --output "$download" \
+          https://www.virtualhere.com/sites/default/files/usbserver/vhusbdx86_64
+        install -m 0755 "$download" /var/lib/virtualhere/vhusbdx86_64
+      fi
+    '';
+
     serviceConfig = {
-      ExecStartPre = [
-        "-/bin/mkdir -p /var/lib/virtualhere"
-        ''
-        /bin/sh -c 'if [ ! -f /var/lib/virtualhere/vhusbdx86_64 ]; then \
-          /bin/curl -o /var/lib/virtualhere/vhusbdx86_64 https://virtualhere.com; \
-          /bin/chmod +x /var/lib/virtualhere/vhusbdx86_64; \
-        fi'
-        ''
-      ];
-      ExecStart = "/var/lib/virtualhere/vhusbdx86_64 -r -c /var/lib/virtualhere";
-      Restart = "always";
+      Type = "forking";
+      ExecStart = "/var/lib/virtualhere/vhusbdx86_64 -b -c /var/lib/virtualhere/config.ini";
+      Restart = "on-failure";
+      RestartSec = "5s";
     };
   };
 }
