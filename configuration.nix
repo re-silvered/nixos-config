@@ -14,9 +14,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  # For virtualisation, libvirt claims them only while the VM is running and returns them on exit.
-  boot.kernelParams = [ "intel_iommu=on" "iommu=pt" ];
-  boot.kernelModules = [ "vfio_pci" ];
 
   # Localisation
   time.timeZone = "Australia/Melbourne";

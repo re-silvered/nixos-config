@@ -4,7 +4,6 @@
   # Yayy interwebs
   networking = {  
     hostName = "nixos"; # *shrugs*
-    firewall.allowedTCPPorts = [ 7575 ]; # VirtualHere
     networkmanager = {
       enable = true;  
       plugins = with pkgs; [
