@@ -10,9 +10,9 @@
         networkmanager-openvpn
         networkmanager-openconnect
       ];
-      # get ready for some bullshit
+
       dispatcherScripts = [
-        {
+        { # Reset DNS to Quad9 in case home DNS server fails (would have bigger problems then though)
         source = pkgs.writeShellScript "select-dns" ''
           interface="$1"
           event="$2"
@@ -51,6 +51,25 @@
           fi
         '';
         type = "basic";
+        }
+        { # Disable wireless if ethernet interface is up
+        source = pkgs.writeShellScript "select-interface" ''
+          interface=$1
+          action=$2
+
+          if [ "$interface" = "enp7s0" ] || [[ "$interface" =~ ^en ]]; then
+            case "$action" in
+              up)
+                echo "Ethernet connected. Disabling Wi-Fi..."
+                ${pkgs.networkmanager}/bin/nmcli radio wifi off
+                ;;
+              down)
+                echo "Ethernet disconnected. Enabling Wi-Fi..."
+                ${pkgs.networkmanager}/bin/nmcli radio wifi on
+                ;;
+            esac
+          fi
+        '';
         }
       ];
     };

@@ -49,7 +49,11 @@
   programs.plasma = {
     enable = true;
     workspace.iconTheme = "Papirus-Dark";
-    kwin.effects.blur.enable = true;
+    kwin.effects.blur = {
+      enable = true;
+      strength = 1;
+      noiseStrength = 1;
+    };
 
     shortcuts = {
       "services/kitty.desktop"."_launch" = "Ctrl+Alt+T";
@@ -69,20 +73,4 @@
       };
     };
   };
-
-  xdg.configFile."kate/externaltools/Run%20Shell%20Script.ini".text = ''
-    [General]
-    actionName=externaltool_RunShellScript
-    arguments=-e sh -c "cd %{Document:Path} && pwd && chmod -vc a+x %{Document:FileName} && ./%{Document:FileName} ; echo Press enter to continue. && read null"
-    category=Tools
-    cmdname=run-script
-    executable=kitty
-    icon=system-run
-    name=Run Shell Script
-    output=Ignore
-    reload=false
-    save=CurrentDocument
-    trigger=None
-    workingDir=%{Document:Path}
-  '';
 }

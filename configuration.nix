@@ -26,9 +26,6 @@
       "networkmanager"
       "wheel" 
     ];
-    packages = with pkgs; [
-      kdePackages.kate
-    ];
   };
 
   systemd.sleep.settings.Sleep = { # I know how to use home+L
