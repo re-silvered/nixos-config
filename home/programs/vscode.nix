@@ -17,6 +17,7 @@
 
         ms-dotnettools.csdevkit
         ms-dotnettools.vscode-dotnet-runtime
+        ms-dotnettools.csharp
         csharpier.csharpier-vscode
 
         eamodio.gitlens

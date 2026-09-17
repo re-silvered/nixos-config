@@ -28,11 +28,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    vfio-stealth = {
-      url = "github:Daaboulex/vfio-stealth-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
   };
 
   outputs = { 
@@ -59,14 +54,7 @@
         home-manager.nixosModules.home-manager
 
         arctis-sound-manager.nixosModules.default
-
-        inputs.vfio-stealth.nixosModules.default
-
         {
-          nixpkgs.overlays = [
-            inputs.vfio-stealth.overlays.default
-          ];
-
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
 
