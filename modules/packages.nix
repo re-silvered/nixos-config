@@ -13,7 +13,6 @@
     curl
     eza
     ripgrep
-
     vim # TODO: learn this
 
     htop
@@ -36,6 +35,10 @@
 
     wl-clipboard
     xclip
+
+    dotnet-runtime
+    dotnet-sdk
+    dotnet-aspnetcore
 
     (pkgs.writeShellApplication {
       name = "rebuild";
