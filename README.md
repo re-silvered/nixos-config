@@ -23,6 +23,7 @@ Credits also to some people from the NixOS discord who shared their configs whos
 │   ├── hardware.nix
 │   ├── networking.nix
 │   ├── packages.nix
+│   ├── qbittorrent-mullvad.nix
 │   ├── ups.nix
 │   └── vr.nix
 ├── nixpkgs

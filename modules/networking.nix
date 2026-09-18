@@ -81,4 +81,7 @@
     enable = true;
     package = pkgs.mullvad-vpn;
   };
+
+  # Isolated
+  services.qbittorrentMullvad.enable = true;
 }

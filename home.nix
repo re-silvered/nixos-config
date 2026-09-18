@@ -20,6 +20,7 @@
     spotify
 
     krita
+    gimp
     kdePackages.kdenlive
     obs-studio
 
