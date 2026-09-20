@@ -34,6 +34,8 @@
     gnupg
     pinentry-qt
     tor-browser
+
+    prismlauncher
   ];
 
   programs.bash = {

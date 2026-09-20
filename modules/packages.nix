@@ -37,9 +37,6 @@
     xclip
     cifs-utils
 
-    dotnet-runtime
-    dotnet-sdk
-    dotnet-aspnetcore
     dotnetCorePackages.sdk_10_0 # ss14 global.json
 
     wineWow64Packages.stagingFull
