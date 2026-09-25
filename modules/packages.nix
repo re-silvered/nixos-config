@@ -14,6 +14,7 @@
     eza
     ripgrep
     vim # TODO: learn this
+    direnv
 
     htop
     btop

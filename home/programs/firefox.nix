@@ -51,6 +51,11 @@
             install_url = moz "bionic-reader";
             installation_mode = "force_installed";
           };
+
+          "plasma-browser-integration@kde.org" = {
+            install_url = moz "plasma-integration";
+            installation_mode = "force_installed";
+          };
         };
 
       Cookies.Behavior = "reject-tracker-and-partition-foreign";

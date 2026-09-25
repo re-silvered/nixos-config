@@ -188,9 +188,6 @@ in
       enable = true;
       openFirewall = false;
       inherit (cfg) webuiPort torrentingPort;
-      # Do not use serverConfig here: NixOS writes it before every start,
-      # which would overwrite the password selected in the Web UI. Network
-      # confinement is enforced by the namespace firewall instead.
       extraArgs = [ "--confirm-legal-notice" ];
     };
 

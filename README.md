@@ -10,6 +10,7 @@ Credits also to some people from the NixOS discord who shared their configs whos
 │   ├── programs
 │   │   ├── default.nix
 │   │   ├── firefox.nix
+│   │   ├── freetube.nix
 │   │   ├── keepassxc.nix
 │   │   ├── kitty.nix
 │   │   ├── nixcord.nix

@@ -46,7 +46,10 @@
       ll = "eza -lah";
     };
 
-    bashrcExtra = "[[ $- != *i* ]] && return \n fastfetch";
+    bashrcExtra = 
+      ''[[ $- != *i* ]] && return 
+      \n fastfetch
+      \n eval "$(direnv hook bash)"'';
   };
 
   programs.plasma = {

@@ -6,7 +6,7 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
       ./modules
     ];
@@ -21,7 +21,7 @@
 
   users.users."silver" = {
     isNormalUser = true;
-    description = "You!";
+    description = "Silver";
     extraGroups = [
       "networkmanager"
       "wheel" 
