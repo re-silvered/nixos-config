@@ -23,6 +23,7 @@
     gimp
     kdePackages.kdenlive
     obs-studio
+    alcom
 
     mangohud
     protonup-qt
@@ -46,10 +47,11 @@
       ll = "eza -lah";
     };
 
-    bashrcExtra = 
-      ''[[ $- != *i* ]] && return 
-      \n fastfetch
-      \n eval "$(direnv hook bash)"'';
+    bashrcExtra = ''
+      [[ $- != *i* ]] && return
+      fastfetch
+      eval "$(direnv hook bash)"
+    '';
   };
 
   programs.plasma = {
