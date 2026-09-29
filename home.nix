@@ -18,12 +18,14 @@
     thunderbird
     telegram-desktop
     spotify
+    freetube
 
     krita
     gimp
     kdePackages.kdenlive
     obs-studio
     alcom
+    vrc-get
 
     mangohud
     protonup-qt

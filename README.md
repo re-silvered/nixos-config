@@ -15,6 +15,7 @@ Credits also to some people from the NixOS discord who shared their configs whos
 │   │   ├── kitty.nix
 │   │   ├── nixcord.nix
 │   │   ├── starship.nix
+│   │   ├── unityhub.nix
 │   │   └── vscode.nix
 │   └── default-apps.nix
 ├── modules

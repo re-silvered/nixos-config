@@ -9,5 +9,6 @@
     ./vscode.nix
     ./starship.nix
     ./freetube.nix
+    ./unityhub.nix
   ];
 }
