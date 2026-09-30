@@ -8,11 +8,11 @@
         vscodevim.vim # mashallah I will learn
 
         jnoortheen.nix-ide
+        mkhl.direnv
+        arrterian.nix-env-selector
 
         ms-vscode.cpptools
-        # ms-vscode.cpp-devtools # not in nixpkgs?
         ms-vscode.cpptools-extension-pack
-        # ms-vscode.cpptools-themes # *cries*
         ms-vscode.cmake-tools
 
         ms-dotnettools.csdevkit
