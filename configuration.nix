@@ -48,5 +48,10 @@
     options = "--delete-older-than 14d";
   };
 
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [ icu ];
+  };
+
   system.stateVersion = "26.05"; # ! DO NOT TOUCH !
 }

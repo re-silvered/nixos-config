@@ -40,6 +40,7 @@
 
     wineWow64Packages.stagingFull
     winetricks
+    nix-ld
 
     haruna
 
