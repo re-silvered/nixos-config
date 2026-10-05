@@ -14,6 +14,7 @@ Credits also to some people from the NixOS discord who shared their configs whos
 │   │   ├── keepassxc.nix
 │   │   ├── kitty.nix
 │   │   ├── nixcord.nix
+│   │   ├── plasma.nix
 │   │   ├── starship.nix
 │   │   ├── unityhub.nix
 │   │   └── vscode.nix

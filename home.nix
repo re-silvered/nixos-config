@@ -55,32 +55,4 @@
       eval "$(direnv hook bash)"
     '';
   };
-
-  programs.plasma = {
-    enable = true;
-    workspace.iconTheme = "Papirus-Dark";
-    kwin.effects.blur = {
-      enable = true;
-      strength = 1;
-      noiseStrength = 1;
-    };
-
-    shortcuts = {
-      "services/kitty.desktop"."_launch" = "Ctrl+Alt+T";
-      "services/org.kde.konsole.desktop"."_launch" = [ ];
-    };
-
-    configFile."kdeglobals"."General" = {
-      TerminalApplication = "kitty";
-      TerminalService = "kitty.desktop";
-    };
-
-    kscreenlocker = {
-      autoLock = false;
-
-      appearance = {
-	      showMediaControls = true;
-      };
-    };
-  };
 }

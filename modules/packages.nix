@@ -11,6 +11,7 @@
     git
     wget
     curl
+    psmisc
     eza
     ripgrep
     vim # TODO: learn this
@@ -40,7 +41,6 @@
 
     wineWow64Packages.stagingFull
     winetricks
-    nix-ld
 
     haruna
 
