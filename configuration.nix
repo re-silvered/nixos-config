@@ -23,6 +23,7 @@
     isNormalUser = true;
     description = "Silver";
     extraGroups = [
+      "gamemode"
       "networkmanager"
       "wheel" 
     ];
