@@ -1,7 +1,6 @@
 { pkgs, ... }:
 
 {
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -26,6 +25,7 @@
     p7zip
     fastfetch
     ffmpeg
+    unrar
 
     pciutils
     usbutils
@@ -43,15 +43,6 @@
     winetricks
 
     haruna
-
-    # VRCFury
-    (pkgs.writeShellApplication {
-      name = "add-vrcfury-repository";
-      runtimeInputs = [ vrc-get ];
-      text = ''
-        vrc-get repo add https://vcc.vrcfury.com
-      '';
-    })
 
     (pkgs.writeShellApplication {
       name = "rebuild";

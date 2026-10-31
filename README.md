@@ -26,8 +26,8 @@ Credits also to some people from the NixOS discord who shared their configs whos
 │   ├── hardware.nix
 │   ├── networking.nix
 │   ├── packages.nix
-│   ├── qbittorrent-mullvad.nix
 │   ├── ups.nix
+│   ├── vpn-containment.nix
 │   └── vr.nix
 ├── nixpkgs
 ├── configuration.nix
@@ -37,3 +37,17 @@ Credits also to some people from the NixOS discord who shared their configs whos
 ```
 
 <!-- TREE-END -->
+
+### VPN containment
+
+`modules/vpn-containment.nix` contains all VPN confinement settings. Add desktop
+applications under `services.vpnContainment.programs`:
+
+- `mode = "always"`: replace the normal command and KDE desktop entry with a VPN launcher.
+- `mode = "separate"`: retain the normal app and add a `<program>-vpn` command and KDE launcher.
+
+qBittorrent's settings are separate because it uses a bridge internally because its ports must be reachable from outside its namespace.
+
+Use a distinct WireGuard configuration for each simultaneous tunnel, or don't idc:
+
+Inspect tunnels with `sudo ip netns exec <app>-vpn wg show`.

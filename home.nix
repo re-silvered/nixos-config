@@ -15,7 +15,6 @@
 
   home.packages = with pkgs; [
     libreoffice-fresh
-    thunderbird
     telegram-desktop
     spotify
     freetube

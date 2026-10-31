@@ -5,7 +5,7 @@
     ./hardware.nix
     ./graphics.nix
     ./networking.nix
-    ./qbittorrent-mullvad.nix
+    ./vpn-containment.nix
     ./packages.nix
     ./gaming.nix
     ./ups.nix
