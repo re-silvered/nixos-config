@@ -51,3 +51,12 @@ qBittorrent's settings are separate because it uses a bridge internally because 
 Use a distinct WireGuard configuration for each simultaneous tunnel, or don't idc:
 
 Inspect tunnels with `sudo ip netns exec <app>-vpn wg show`.
+
+### VR
+
+Configured for PS2VR with Ignition and PS2VRToolKit
+(inc. eyetracking & FBT)
+
+The command **`vr-start`** is included, it:
+checks the driver, runs vr2jb, starts SteamVR, WayVR and Baballonia.
+If SteamVR is already running, it reuses that session and starts either app if they are not already running in which case it does not repeat the jailbreak or driver setup.

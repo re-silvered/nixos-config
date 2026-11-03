@@ -8,6 +8,8 @@
       extraProfile = ''
         # Allows Monado/WiVRn to be used
         export PRESSURE_VESSEL_IMPORT_OPENXR_1_RUNTIMES=1
+        # Let SlimeVR's SteamVR driver reach the server's Unix socket.
+        export PRESSURE_VESSEL_FILESYSTEMS_RW="''${PRESSURE_VESSEL_FILESYSTEMS_RW:+$PRESSURE_VESSEL_FILESYSTEMS_RW:}$XDG_RUNTIME_DIR/SlimeVRDriver"
       '';
     };
   };

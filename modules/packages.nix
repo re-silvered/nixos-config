@@ -44,6 +44,10 @@
 
     haruna
 
+    (with dotnetCorePackages; combinePackages [
+    sdk_10_0
+    ])
+
     (pkgs.writeShellApplication {
       name = "rebuild";
 
@@ -54,4 +58,8 @@
       text = builtins.readFile ../scripts/rebuild.sh;
     })
   ];
+
+  environment.sessionVariables = {
+  DOTNET_ROOT = "${pkgs.dotnetCorePackages.sdk_10_0}/share/dotnet";
+  };
 }
