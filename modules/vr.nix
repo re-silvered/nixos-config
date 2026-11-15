@@ -27,7 +27,7 @@ let
       fi
       cd "$HOME"
       steam-run bash "$common/SteamVR/bin/vrpathreg.sh" adddriver ${slimevrDriver}/share/slimevr
-      echo '[ERR] SlimeVR driver registered'
+      echo '[INF] SlimeVR driver registered'
     '';
   };
   baballoniaRuntime = (pkgs.steam.override {

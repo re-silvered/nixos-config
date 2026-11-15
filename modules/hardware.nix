@@ -39,6 +39,11 @@
   services.fstrim.enable = true;
 
   ## Peripherals
+  # Disable the heatsink's display because it's not even visible in my case (0416:5302)
+  systemd.tmpfiles.rules = [
+    "w /sys/devices/pci0000:00/0000:00:14.0/usb1/1-0:1.0/usb1-port7/disable - - - - 1"
+  ];
+
   # General
   services.ratbagd.enable = true;
 

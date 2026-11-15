@@ -54,5 +54,16 @@
     libraries = with pkgs; [ icu ];
   };
 
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+    package = pkgs.appimage-run.override {
+      extraPkgs = pkgs: [
+        pkgs.glib
+        pkgs.fuse
+      ];
+    };
+  };
+
   system.stateVersion = "26.05"; # ! DO NOT TOUCH !
 }

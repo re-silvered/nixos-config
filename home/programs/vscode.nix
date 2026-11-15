@@ -3,6 +3,15 @@
 {
   programs.vscode = {
     enable = true;
+    # remove this workaround once nixpkgs catches up.
+    package = if pkgs.vscode.version == "1.144.0" then
+      pkgs.vscode.overrideAttrs (old: {
+        postPatch = pkgs.lib.replaceStrings
+          [ "resources/app/node_modules/@vscode/ripgrep/bin/rg" ]
+          [ "resources/app/node_modules.asar.unpacked/@vscode/ripgrep-universal/bin/linux-x64/rg" ]
+          old.postPatch;
+      })
+    else pkgs.vscode;
     profiles.default = {
       extensions = with pkgs.vscode-extensions; [
         vscodevim.vim # mashallah I will learn
@@ -34,6 +43,7 @@
         "editor.fontSize" = 14;
         "workbench.colorTheme" = "Dracula";
         "gitlens.plusFeatures.enabled" = false;
+        "chat.disableAIFeatures" = true;
       };
     };
   };

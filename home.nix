@@ -21,6 +21,7 @@ in
     inputs.nixcord.homeModules.nixcord 
     ./home/programs
     ./home/default-apps.nix
+    /etc/nixos/secrets/localmodules.nix
 ];
 
   home.username = "silver";
@@ -32,6 +33,7 @@ in
   home.packages = with pkgs; [
     libreoffice-fresh
     telegram-desktop
+    protonmail-bridge-gui
     spotify
     freetube
 
