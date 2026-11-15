@@ -392,5 +392,43 @@ in {
           };
       };
     })
+    (lib.mkIf (cfg.enable && programs ? thunderbird) {
+      # ohhmyfuck this took too long to find out
+      systemd.services = let
+        ports = [ 1143 1025 ];
+        relayName = port: "thunderbird-bridge-${toString port}";
+        socketPath = port: "/run/${relayName port}/bridge.sock";
+      in {
+        thunderbird-vpn.wants = map (port: "${relayName port}-local.service") ports;
+      } // builtins.listToAttrs (lib.concatMap (port: [
+        (lib.nameValuePair (relayName port) {
+          description = "Proton-bridge relay on port ${toString port}";
+          serviceConfig = {
+            User = cfg.user;
+            RuntimeDirectory = relayName port;
+            RuntimeDirectoryMode = "0700";
+            UMask = "0077";
+            ExecStart = "${pkgs.socat}/bin/socat UNIX-LISTEN:${socketPath port},fork,unlink-early,mode=0600 TCP4:127.0.0.1:${toString port}";
+            Restart = "on-failure";
+            RestartSec = 1;
+            NoNewPrivileges = true;
+          };
+        })
+        (lib.nameValuePair "${relayName port}-local" {
+          description = "Proton-bridge port ${toString port} for contained thunderbird";
+          requires = [ "thunderbird-vpn.service" "${relayName port}.service" ];
+          after = [ "thunderbird-vpn.service" "${relayName port}.service" ];
+          partOf = [ "thunderbird-vpn.service" ];
+          serviceConfig = {
+            User = cfg.user;
+            NetworkNamespacePath = "/run/netns/thunderbird-vpn";
+            ExecStart = "${pkgs.socat}/bin/socat TCP4-LISTEN:${toString port},bind=127.0.0.1,reuseaddr,fork UNIX-CONNECT:${socketPath port}";
+            Restart = "on-failure";
+            RestartSec = 1;
+            NoNewPrivileges = true;
+          };
+        })
+      ]) ports);
+    })
   ];
 }

@@ -3,6 +3,15 @@
 {
   # Plasma
   services.desktopManager.plasma6.enable = true;
+
+  systemd.slices."user".sliceConfig.MemoryLow = "2G";
+  systemd.slices."user-".sliceConfig.MemoryLow = "2G";
+  systemd.services."user@" = {
+    overrideStrategy = "asDropin";
+    serviceConfig.MemoryLow = "2G";
+  };
+  systemd.user.slices."session".sliceConfig.MemoryLow = "2G";
+
   environment.plasma6.excludePackages = [ pkgs.kdePackages.konsole ];
   services.displayManager.sddm = {
     enable = true;
